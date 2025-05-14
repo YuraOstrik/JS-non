@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 01</title>
+</head>
+
+<body>
+
+    <div class="cars" id="placeholder1"></div>
+    <div class="cars" id="placeholder2"></div>
+    <script>
+        /*
+        Задание:
+        Выполните рефакторинг кода. Сделайте так, чтобы объекты создавались не через литералы, а через функцию конструктор.
+        */
+
+        // let user1 = {
+        //     firstName: "Ivan",
+        //     lastName: "Ivanov",
+            
+        //     show: function () {
+        //         console.log(this.firstName + " " + this.lastName);
+        //     }
+        // }
+
+        function User (name,surname){
+            return{
+                name: name,
+                surname: surname,
+
+                showstatus: function (elements){
+                    elements.insertAdjacentHTML("beforeend", `Name: ${this.name} <br>`);
+                    elements.insertAdjacentHTML("beforeend", `Surname: ${this.surname} <br>`);
+                }
+            }
+        }
+
+        let user1 = User("Ivan", "Ivanov");
+        let user2 = User("Olga", "Petrova");
+        let placeholder1 = document.querySelector("#placeholder1");
+        let placeholder2 = document.querySelector("#placeholder2");
+
+
+        user1.showstatus(placeholder1);
+        user2.showstatus(placeholder2);
+
+        // let user2 = {
+        //     firstName: "Olga",
+        //     lastName: "Petrova",
+            
+        //     show: function () {
+        //         console.log(this.firstName + " " + this.lastName);
+        //     }
+        // }
+
+        
+    </script>
+</body>
+
+</html>
